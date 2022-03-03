@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8b34625-4835-41fc-b885-0072000e17f7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/payment_client.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/payment_client_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/user_client.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/api_payment_controller.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/tansaction.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/wallet.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/routers.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swagger-template/go-gin-server/Dockerfile.mustache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swagger-template/go-gin-server/README.mustache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swagger-template/go-gin-server/controller-api.mustache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swagger-template/go-gin-server/main.mustache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swagger-template/go-gin-server/model.mustache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swagger-template/go-gin-server/openapi.mustache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swagger-template/go-gin-server/partial_header.mustache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swagger-template/go-gin-server/routers.mustache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swagger-template/swagger.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swagger-template/swagger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/wallet.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/wallet.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
