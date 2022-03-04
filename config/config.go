@@ -60,13 +60,14 @@ func GetProjectRootPath() (string, error) {
 
 type AppConfig struct {
 	Mysql struct {
-		Host string `yaml:"host"`
-		Port string `yaml:"port"`
-		User string `yaml:"user"`
-		Password string `yaml:"password"`
-		Database string `yaml:"database"`
-		MaxConn int `yaml:"maxConn"`
-		MaxIdle int `yaml:"maxIdle"`
-		MaxConnLifetime int64 `yaml:"maxConnLifetime"`
-	} `yaml:"mysql"`
+		Host            string `yaml:"host"`
+		Port            string `yaml:"port"`
+		User            string `yaml:"user"`
+		Password        string `yaml:"password"`
+		Database        string `yaml:"database"`
+		MaxConn         int    `yaml:"maxConn"`
+		MaxIdle         int    `yaml:"maxIdle"`
+		MaxConnLifetime int64  `yaml:"maxConnLifetime"`
+	}
+	Security map[string]string `yaml:"publicKey"`
 }

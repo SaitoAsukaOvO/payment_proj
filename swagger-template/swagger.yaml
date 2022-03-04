@@ -13,6 +13,18 @@ consumes:
 produces:
   - application/json
 paths:
+  /publicKey:
+    get:
+      tags:
+        - payment
+      summary: encrypt user pwd
+      operationId: public_key
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/apiStatus'
+      x-swagger-router-controller: manager.swagger_server.controllers.config_controller
   /signUp:
     post:
       tags:
@@ -71,4 +83,6 @@ definitions:
           phone:
             type: string
           createdAt:
+            type: integer
+          walletId:
             type: integer

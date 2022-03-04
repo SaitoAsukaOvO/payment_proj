@@ -7,3 +7,28 @@ mysql:
   maxConn: 20
   maxIdle: 20
   maxConnLifetime: 5
+
+security:
+  private-key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIICXQIBAAKBgQDFPsJC1vbvhsNtEA4dzCFUJH9EWSpHIGaPVR92lp423hKlKqvg
+    CwxO9VR6+L57LJ4UczNaDIFW81Ja+FuTG32KuIOXnDNeJrc3dApwOdJ+YE3VDVKf
+    BtwKnvtu1FIA8xS7nlVybHAc8fYGswmsjKYsVxdcadgqWTsmZTaUlodi/wIDAQAB
+    AoGAVC/JMkYV934Jg09K9yTdRNCfEUkNZnZJz/uBBlibBsgaJSzlVybgBgNoH2Rz
+    yJbukcPpsxGLUtVf3TwLueoN1puwcuB2yBnLUX8bk1+GPp5Oe4Ecubte3XTwPaCD
+    AZQpURYBPd9sBKmqjXAS4Vxqct77963CpErx2WzlYS+wgQECQQDmeQPYn9sfOlMh
+    fauKBBWVvASa+WD90yPdQI2CijQv/za1JJ2/bcmwj844HAVDcnr0AerDFWvvpV+W
+    yTErZerfAkEA2xeWD9opATuzD/yVSZ5SyOmCseXmpqnb/uxQav9jaWeL32UlD50j
+    y8jskVRcy4c9LhYBW9blYq7i5W2WxQ+r4QJAQ8GCCvZ8EgMwm2D5xFqNCfc7l2AH
+    Trf7DDnFIIKG8zFhoQGBytx49gphAwfh2EFYulGx9eZfVBXXM1o0tWCCGwJBAIvx
+    S9vCSLDN9jk+6AiHBW/pn56ML8DC/I+fWFqP2GrqRfCihYKsp8GyDFFj5oXmU1DN
+    o36LDCf1d15+mnAy62ECQQDFpVjul/cFRp+io5LXyXLnMtCxWzwtAhS/dNa/JyJ+
+    2/Ypssw4vFByYFPaJfaL0WcceNDMtYUBC2JitdPQU1/E
+    -----END RSA PRIVATE KEY-----
+  public-key: |
+    -----BEGIN PUBLIC KEY-----
+    MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDFPsJC1vbvhsNtEA4dzCFUJH9E
+    WSpHIGaPVR92lp423hKlKqvgCwxO9VR6+L57LJ4UczNaDIFW81Ja+FuTG32KuIOX
+    nDNeJrc3dApwOdJ+YE3VDVKfBtwKnvtu1FIA8xS7nlVybHAc8fYGswmsjKYsVxdc
+    adgqWTsmZTaUlodi/wIDAQAB
+    -----END PUBLIC KEY-----

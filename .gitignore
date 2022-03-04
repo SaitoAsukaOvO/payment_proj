@@ -1,2 +1,4 @@
 .idea
 **/.idea/
+**/swagger-generated
+swagger-generated
