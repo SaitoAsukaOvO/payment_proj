@@ -1,15 +1,23 @@
 package model
 
+import "gorm.io/gorm"
+
 //Entity of World Wallet user
 type User struct{
-	ID int  `json:"id,omitempty"`
-	FirstName string `json:"firstName"`
-	LastName string  `json:"lastName"`
-	Email string     `json:"email,omitempty"`
-	Phone string      `json:"phone,omitempty"`
-	CreatedAt int64 `json:"createdAt,omitempty"` // use unix timestamp
-	UpdatedAt int64  `json:"updatedAt,omitempty"`
-	DeletedAt int64   `json:"deletedAt,omitempty"`
-	WalletId int    `json:"walletId,omitempty"`
+	gorm.Model
+	Name string `json:"name"`
+	Email string     `json:"email"`
+	Phone string      `json:"phone"`
+	Password string `json:"password"`
+	Wallets  []Wallet  `json:"wallets"`
+	Transactions []Transaction `json:"transactions"`
+}
+
+type UserResponse struct {
+	Msg string `json:"msg"`
+
+	Code int32 `json:"code"`
+
+	Data User `json:"data"`
 }
 

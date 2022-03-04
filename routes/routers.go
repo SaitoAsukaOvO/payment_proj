@@ -57,12 +57,23 @@ var routes = Routes{
 		controllers.PublicKey,
 	},
 	{
-		"SignUp",
+		"CreateUser",
 		http.MethodPost,
-		"/api/signUp",
-		controllers.SignUp,
+		"/api/user",
+		controllers.CreateUser,
 	},
-
+	{
+		"GetUser",
+		http.MethodGet,
+		"/api/user",
+		controllers.GetUser,
+	},
+	{
+		"CreateWallet",
+		http.MethodPost,
+		"/api/wallet",
+		controllers.CreateWallet,
+	},
 	{
 		"MakeTransaction",
 		http.MethodPost,
