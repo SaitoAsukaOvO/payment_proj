@@ -2,6 +2,7 @@ package client
 
 import (
 	"errors"
+	"fmt"
 	"payment_proj/common"
 	"payment_proj/config"
 	"payment_proj/model"
@@ -17,7 +18,12 @@ func GetPublicKey() (string,error) {
 	return publicKey, nil
 }
 
-func SignUp(user *model.User) error {
-
+func SignUp(user *model.User) error{
+	chain := DB.Model(&model.User{})
+	chain.Create(user)
+	if chain == nil {
+		errMsg := fmt.Sprintf("Fail to create user")
+		return errors.New(errMsg)
+	}
 	return nil
 }

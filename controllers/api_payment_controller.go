@@ -33,7 +33,13 @@ func SignUp(c *gin.Context) {
 			Code: common.GeneralErrorCode,
 		})
 	}
-	client.SignUp(userInfo)
+	err = client.SignUp(userInfo)
+	if err != nil {
+		c.JSON(http.StatusOK, model.ApiStatus{
+			Msg:  err.Error(),
+			Code: common.GeneralErrorCode,
+		})
+	}
 	c.JSON(http.StatusOK, "")
 }
 

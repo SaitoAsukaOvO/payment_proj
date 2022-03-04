@@ -22,6 +22,8 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
+
+	// Generate Tables (User, Wallet and Transaction)
 	_ = tmp.AutoMigrate(&model.User{})
 	_ = tmp.AutoMigrate(&model.Wallet{})
 	_ = tmp.AutoMigrate(&model.Transaction{})
