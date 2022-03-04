@@ -51,6 +51,12 @@ func NewRouter() *gin.Engine {
 
 var routes = Routes{
 	{
+		"PublicKey",
+		http.MethodGet,
+		"/api/publicKey",
+		controllers.PublicKey,
+	},
+	{
 		"SignUp",
 		http.MethodPost,
 		"/api/signUp",
