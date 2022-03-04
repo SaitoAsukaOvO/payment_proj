@@ -25,19 +25,41 @@ paths:
           schema:
             $ref: '#/definitions/apiStatus'
       x-swagger-router-controller: manager.swagger_server.controllers.config_controller
-  /signUp:
+  /user:
+    get:
+      tags:
+        - payment
+      summary: Get available user info
+      parameters:
+        - in: query
+          name: userID
+          required: true
+          type: string
+      operationId: get_user
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/apiUserResponse'
+        default:
+          description: ''
+          schema:
+            $ref: '#/definitions/apiStatus'
+      x-swagger-router-controller: manager.swagger_server.controllers.config_controller
     post:
       tags:
         - payment
       summary: signup a user
       operationId: create_user
+      parameters:
+        - name: body
+          required: true
+          in: body
+          schema:
+            $ref: '#/definitions/apiUserBody'
       responses:
         '200':
           description: A successful response.
-          schema:
-            $ref: '#/definitions/apiUserCreationResponse'
-        default:
-          description: ''
           schema:
             $ref: '#/definitions/apiStatus'
       x-swagger-router-controller: manager.swagger_server.controllers.config_controller
@@ -61,7 +83,7 @@ definitions:
       msg: string
       code: 0
       data: string
-  apiUserCreationResponse:
+  apiUserResponse:
     type: object
     properties:
       msg:
@@ -72,17 +94,33 @@ definitions:
       data:
         type: object
         properties:
-          id:
-            type: integer
-          firstName:
-            type: string
-          lastName:
+          name:
             type: string
           email:
             type: string
           phone:
             type: string
-          createdAt:
-            type: integer
-          walletId:
-            type: integer
+          password:
+            type: string
+          wallet:
+            type: array
+            items:
+              $ref: '#/definitions/apiWalletInfo'
+  apiUserBody:
+    type: object
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+      phone:
+        type: string
+      password:
+        type: string
+  apiWalletInfo:
+    type: object
+    properties:
+      id:
+        type: integer
+      balance:
+        type: integer

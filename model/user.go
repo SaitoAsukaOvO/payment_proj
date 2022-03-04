@@ -13,3 +13,11 @@ type User struct{
 	Transactions []Transaction `json:"transactions"`
 }
 
+type UserResponse struct {
+	Msg string `json:"msg"`
+
+	Code int32 `json:"code"`
+
+	Data User `json:"data"`
+}
+

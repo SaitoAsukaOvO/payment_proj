@@ -4,7 +4,6 @@ import "gorm.io/gorm"
 
 type Wallet struct {
 	gorm.Model
-	WalletNo string `json:"walletNo"`
-	UserID  uint
+	UserID  uint `json:"userID"`
 	Balance int `json:"balance"`
 }
