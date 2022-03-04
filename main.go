@@ -10,10 +10,8 @@
 package main
 
 import (
-	_ "eap-audit-manager/client/mysqlclient"
-	"eap-audit-manager/routes"
-	_ "eap-audit-manager/scheduler"
 	"log"
+	"payment_proj/routes"
 )
 
 
