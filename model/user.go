@@ -10,6 +10,6 @@ type User struct{
 	CreatedAt int64 `json:"createdAt,omitempty"` // use unix timestamp
 	UpdatedAt int64  `json:"updatedAt,omitempty"`
 	DeletedAt int64   `json:"deletedAt,omitempty"`
-	Wallet Wallet     `json:"wallet,omitempty"`
+	WalletId int    `json:"walletId,omitempty"`
 }
 
