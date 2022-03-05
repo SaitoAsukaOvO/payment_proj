@@ -106,6 +106,7 @@ func CreateTransaction(c *gin.Context) {
 			Msg:  err.Error(),
 			Code: common.GeneralErrorCode,
 		})
+		return
 	}
 	c.JSON(http.StatusOK, model.ApiStatus{
 		Msg:  "OK",
