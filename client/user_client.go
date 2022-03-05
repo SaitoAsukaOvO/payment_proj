@@ -60,7 +60,7 @@ func GetUserInfo(UserID uint) (model.User, error) {
 	}
 	user.Wallets = wallets
 
-	err = DB.Model(&model.Transaction{}).Where("user_id = ? ", UserID).Find(&transactions).Error
+	err = DB.Model(&model.Transaction{}).Where("user_id = ? or to_user_id = ?", UserID, UserID).Find(&transactions).Error
 	if err != nil {
 		return user, err
 	}

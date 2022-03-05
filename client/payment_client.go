@@ -19,13 +19,13 @@ func MakeTransaction(transaction *model.Transaction) error {
 	if err != nil {
 		return err
 	}
+
+	// Insert Transaction record
 	err = updateWallet(transaction.UserID, transaction.ToUserID, transaction.FromWalletId, transaction.ToWalletId, transaction.Amount)
 	if err != nil {
 		return err
 	}
 
-	// Insert transaction record
-	DB.Model(&transaction).Create(&transaction)
 	return nil
 }
 
