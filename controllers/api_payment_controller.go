@@ -63,7 +63,7 @@ func CreateWallet(c *gin.Context) {
 		})
 		return
 	}
-	client.InitWalletByUserId(walletInfo.UserID)
+	client.InitWalletByUserId(walletInfo.UserID, walletInfo.Balance)
 	c.JSON(http.StatusOK, model.ApiStatus{
 		Msg:  "OK",
 		Code: common.Success,
@@ -90,6 +90,25 @@ func GetUser(c *gin.Context) {
 	})
 }
 
-func MakeTransaction(c *gin.Context) {
-	c.JSON(http.StatusOK, "")
+func CreateTransaction(c *gin.Context) {
+	transaction := &model.Transaction{}
+	err := c.ShouldBindJSON(transaction)
+	if err != nil {
+		c.JSON(http.StatusOK, model.ApiStatus{
+			Msg:  err.Error(),
+			Code: common.GeneralErrorCode,
+		})
+		return
+	}
+	err = client.MakeTransaction(transaction)
+	if err != nil {
+		c.JSON(http.StatusOK, model.ApiStatus{
+			Msg:  err.Error(),
+			Code: common.GeneralErrorCode,
+		})
+	}
+	c.JSON(http.StatusOK, model.ApiStatus{
+		Msg:  "OK",
+		Code: common.Success,
+	})
 }
