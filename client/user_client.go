@@ -3,14 +3,17 @@ package client
 import (
 	"errors"
 	"fmt"
+	"log"
 	"payment_proj/common"
 	"payment_proj/config"
 	"payment_proj/model"
 )
 
+// This is used to encrypt password
 func GetPublicKey() (string,error) {
 	configMap := config.LoadAppConfig()
 
+	log.Printf("Load public key config")
 	publicKey, ok := configMap.Security[common.PublicKey]
 	if !ok {
 		return publicKey, errors.New("Public key is missing in config")
@@ -20,6 +23,7 @@ func GetPublicKey() (string,error) {
 
 // This function is used to create a user
 func SignUp(user *model.User) error {
+	log.Printf("Creating user...")
 	userChain := DB.Model(&model.User{})
 	if userChain == nil {
 		errMsg := fmt.Sprintf("Fail to create user")
@@ -33,6 +37,7 @@ func SignUp(user *model.User) error {
 	user.Wallets = wallets
 
 	userChain.Create(user)
+	log.Printf("User created...")
 	return nil
 }
 
