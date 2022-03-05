@@ -75,9 +75,9 @@ var routes = Routes{
 		controllers.CreateWallet,
 	},
 	{
-		"MakeTransaction",
+		"CreateTransaction",
 		http.MethodPost,
-		"/api/makeTransaction",
-		controllers.MakeTransaction,
+		"/api/transaction",
+		controllers.CreateTransaction,
 	},
 }

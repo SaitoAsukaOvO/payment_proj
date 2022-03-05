@@ -6,8 +6,9 @@ import "gorm.io/gorm"
 type Transaction struct {
 	gorm.Model
 	Password string `json:"password"`
-	UserID  uint
-	FromWalletId string `json:"fromWalletId"`
-	ToWalletId string`json:"toWalletId"`
+	UserID  uint `json:"userID"`
+	ToUserID uint `json:"toUserId"`
+	FromWalletId int `json:"fromWalletId"`
+	ToWalletId int`json:"toWalletId"`
 	Amount float64 `json:"amount"`
 }

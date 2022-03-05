@@ -27,7 +27,7 @@ func SignUp(user *model.User) error {
 	}
 
 	// init a wallet when user is creating
-	wallet := InitWalletByUserId(user.ID)
+	wallet := InitWalletByUserId(user.ID, 0)
 	var wallets []model.Wallet
 	wallets = append(wallets, wallet)
 	user.Wallets = wallets
@@ -36,18 +36,22 @@ func SignUp(user *model.User) error {
 	return nil
 }
 
-func InitWalletByUserId(userID uint) model.Wallet {
-	return model.Wallet{
+func InitWalletByUserId(userID uint, balance float64) model.Wallet {
+	wallet := model.Wallet{
 		UserID:  userID,
-		Balance: 0,
+		Balance: balance,
 	}
+
+	// insert wallet record
+	DB.Model(&wallet).Create(&wallet)
+	return wallet
 }
 
 func GetUserInfo(UserID uint) (model.User, error) {
 	user := model.User{}
 	err := DB.Model(&user).Where("ID = ? ", UserID).Find(&user).Error
-	// Get all wallets
 	var wallets []model.Wallet
+	var transactions []model.Transaction
 
 	// Find wallets for a certain user
 	err = DB.Model(&model.Wallet{}).Where("user_id = ? ", UserID).Find(&wallets).Error
@@ -55,5 +59,11 @@ func GetUserInfo(UserID uint) (model.User, error) {
 		return user, err
 	}
 	user.Wallets = wallets
+
+	err = DB.Model(&model.Transaction{}).Where("user_id = ? ", UserID).Find(&transactions).Error
+	if err != nil {
+		return user, err
+	}
+	user.Transactions = transactions
 	return user, nil
 }

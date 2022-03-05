@@ -63,6 +63,24 @@ paths:
           schema:
             $ref: '#/definitions/apiStatus'
       x-swagger-router-controller: manager.swagger_server.controllers.config_controller
+  /wallet:
+    post:
+      tags:
+        - payment
+      summary: create a wallet for a user
+      operationId: create_wallet
+      parameters:
+        - name: body
+          required: true
+          in: body
+          schema:
+            $ref: '#/definitions/apiWalletInfo'
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/apiStatus'
+      x-swagger-router-controller: manager.swagger_server.controllers.config_controller
 definitions:
   apiStatus:
     type: object
@@ -121,6 +139,9 @@ definitions:
     type: object
     properties:
       id:
+        type: integer
+        x-nullable: true
+      userID:
         type: integer
       balance:
         type: integer
