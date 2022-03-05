@@ -10,6 +10,7 @@ import (
 
 func main()  {
 	conf := config.LoadAppConfig()
+	log.Printf("Connectting to mysql...")
 	db, err := sql.Open("mysql", fmt.Sprintf(
 		"%s:%s@tcp(%s:%s)/",
 		conf.Mysql.User,
@@ -24,6 +25,7 @@ func main()  {
 	defer db.Close()
 
 	_, err = db.Exec("CREATE DATABASE IF NOT EXISTS WorldWallet;")
+	log.Printf("Database WorldWallet Created")
 	if err != nil {
 		log.Panic(err.Error())
 	}
@@ -31,5 +33,5 @@ func main()  {
 	if err != nil {
 		log.Panic(err.Error())
 	}
-	fmt.Printf("Database checked")
+	log.Printf("Database checked")
 }
